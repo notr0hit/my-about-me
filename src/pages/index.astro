@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hey there 👋</div>
+    <div class="text-5xl font-bold">I'm Rohit Khare</div>
+    <div class="text-3xl py-3 font-bold">Aspiring Software Engineer</div>
+    <div class="py-2">
+      <text class="text-lg">
+        I'm a computer science student at MANIT Bhopal. I like coding and solving problems, and I'm constantly seeking opportunities to learn and improve. Here, you can explore some of the projects I've worked on.
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="https://www.linkedin.com/in/rohit-khare-442a47206/" target="_blank"> Let's connect!</a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+  </div>
+
+  <HorizontalCard
+    title="DSA Search Engine"
+    img="/search.png"
+    desc="search engine for DSA Problems scraped from leetcode and interviewbit using Information Retrieval (IR) Algorithms like TF-IDF and BM25"
+    url="https://dsa-search-engine-pzu9.onrender.com/"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="LearnPost"
+    img="/learn-post.png"
+    desc="LearnPost is an educational online blog platform where users can read, write and comment on educational posts."
+    url="https://learn-post.onrender.com/"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Code Colab Editor"
+    img="/editor.png"
+    desc="A collaborative coding platform designed to facilitate real-time coding collaboration among multiple users."
+    url="https://code-colab-edtior.onrender.com/"
+    badge="NEW"
+  />
+
+</BaseLayout>
