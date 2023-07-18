@@ -8,8 +8,7 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://notr0hit.github.io',
-  base: '/my-about-me',
+  site: 'https://my-about-me-seven.vercel.app/',
   integrations: [mdx(), sitemap(), tailwind(), image(
     {
       serviceEntryPoint: '@astrojs/image/sharp',
